@@ -85,3 +85,41 @@ $ pip install python-decouple
 
 ### Antes de começarmos a definir algumas funções importantes, vamos primeiro criar um mecanismo de fala.
 
+```Python
+import pyttsx3
+from decouple import config
+
+USERNAME = config('USER')
+BOTNAME = config('BOTNAME')
+
+
+engine = pyttsx3.init('sapi5')
+
+# Set Rate
+engine.setProperty('rate', 190)
+
+# Set Volume
+engine.setProperty('volume', 1.0)
+
+# Set Voice (Female)
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[1].id)
+```
+
+### Vamos analisar o script acima. Em primeiro lugar, inicializamos um `engine` usando o módulo `pyttsx3`. `sapi5` é uma API de fala da Microsoft que nos ajuda a usar as vozes. Saiba mais sobre isso aqui.
+
+### Em seguida, estamos definindo as propriedades de `rate` e `volume` do mecanismo de fala usando o método `setProperty`.
+
+### Agora, podemos obter as vozes do mecanismo usando o método `getProperty`. `voices` será uma lista de vozes disponíveis em nosso sistema. Se nós imprimi-lo, podemos ver como abaixo:
+
+```shell
+[<pyttsx3.voice.Voice object at 0x000001AB9FB834F0>, <pyttsx3.voice.Voice object at 0x000001AB9FB83490>]
+```
+
+### O primeiro é uma voz masculina e o outro é uma voz feminina. JARVIS era um assistente do sexo masculino nos filmes, mas eu escolhi definir a propriedade de `voice` como feminina para este tutorial usando o método `setProperty`.
+
+```Markdown
+Nota: Se você receber um erro relacionado ao PyAudio, baixe o PyAudio wheel [aqui](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio) e instale-o dentro do ambiente virtual.
+```
+
+### Além disso, usando o método de `config` do desacoplamento, estamos obtendo o valor de `USER` e `BOTNAME` das variáveis de ambiente.
