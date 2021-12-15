@@ -79,4 +79,9 @@ BOTNAME=JARVIS
 $ pip install python-decouple
 ```
 
-### Saiba mais sobre variáveis ​​de ambiente em Python [aqui](https://iread.ga/posts/49/do-you-really-need-environment-variables-in-python).
+### Saiba mais sobre variáveis de ambiente em Python [aqui](https://iread.ga/posts/49/do-you-really-need-environment-variables-in-python).
+
+## Como configurar o JARVIS com Python:
+
+### Antes de começarmos a definir algumas funções importantes, vamos primeiro criar um mecanismo de fala.
+

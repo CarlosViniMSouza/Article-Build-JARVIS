@@ -1,2 +1,4 @@
 # Dont need upload:
 venv
+.idea
+.env
