@@ -10,12 +10,20 @@ BOTNAME = config('BOTNAME')
 
 engine = pyttsx3.init('sapi5')
 
-# Set Rate
+# Definir taxa:
 engine.setProperty('rate', 190)
 
-# Set Volume
+# Definir Volume:
 engine.setProperty('volume', 1.0)
 
-# Set Voice (Female)
+# Definir voz(feminina):
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
+
+
+# Conversão de texto em fala:
+def speak(text):
+    # Usado para falar qualquer texto que seja passado a ele:
+    engine.say(text)
+    engine.runAndWait()
+

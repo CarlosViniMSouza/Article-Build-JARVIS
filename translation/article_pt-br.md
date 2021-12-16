@@ -123,3 +123,20 @@ Nota: Se você receber um erro relacionado ao PyAudio, baixe o PyAudio wheel [aq
 ```
 
 ### Além disso, usando o método de `config` do desacoplamento, estamos obtendo o valor de `USER` e `BOTNAME` das variáveis de ambiente.
+
+## Habilite a função de falar
+
+### A função speak será responsável por falar qualquer texto que for passado a ela. Vamos ver o código:
+
+```python
+# Conversão de texto em fala
+def speak(text):
+    # Usado para falar qualquer texto que seja passado a ele
+    
+    engine.say(text)
+    engine.runAndWait()
+```
+
+### No método `speak()`, o mecanismo fala qualquer texto que for passado a ele usando o método `say()`. Usando o método `runAndWait()`, ele bloqueia durante o loop de eventos e retorna quando a fila de comandos é limpa.
+
+## Enable the Greet Function:
