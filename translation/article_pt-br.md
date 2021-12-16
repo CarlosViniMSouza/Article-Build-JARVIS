@@ -140,3 +140,23 @@ def speak(text):
 ### No método `speak()`, o mecanismo fala qualquer texto que for passado a ele usando o método `say()`. Usando o método `runAndWait()`, ele bloqueia durante o loop de eventos e retorna quando a fila de comandos é limpa.
 
 ## Enable the Greet Function:
+
+### Esta função será usada para saudar o usuário sempre que o programa for executado. De acordo com o horário atual, ele cumprimenta Bom dia, Boa tarde ou Boa noite ao usuário.
+
+```python
+from datetime import datetime
+
+def greet_user():
+    """Greets the user according to the time"""
+    
+    hour = datetime.now().hour
+    if (hour >= 6) and (hour < 12):
+        speak(f"Bom Dia {USERNAME}")
+    elif (hour >= 12) and (hour < 16):
+        speak(f"Boa Tarde {USERNAME}")
+    elif (hour >= 16) and (hour < 19):
+        speak(f"Boa Noite {USERNAME}")
+    speak(f"Eu sou {BOTNAME}. Como posso te ajudar?")
+```
+
+### Primeiramente, obtemos a hora atual, ou seja, se a hora atual for 11h15, a hora será 11. Se o valor da hora estiver entre 6 e 12, deseje bom dia ao usuário. Se o valor for entre 12 e 16, deseje Boa Tarde e da mesma forma, se o valor for entre 16 e 19, deseje Boa Noite. Estamos usando o método speak para falar com o usuário.
