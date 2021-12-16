@@ -4,6 +4,9 @@
 import pyttsx3
 from decouple import config
 from datetime import datetime
+import speech_recognition as sr
+from random import choice
+from utils import opening_text
 
 USERNAME = config('USER')
 BOTNAME = config('BOTNAME')
@@ -39,3 +42,31 @@ def greet_user():
     elif (hour >= 16) and (hour < 19):
         speak(f"Boa Noite {USERNAME}")
     speak(f"Eu sou {BOTNAME}. Como posso te ajudar?")
+
+
+def take_user_input():
+    # Takes user input, recognizes it using Speech Recognition module and converts it into text
+
+    r = sr.Recognizer()
+
+    with sr.Microphone() as source:
+        print('Escutando....')
+        r.pause_threshold = 1
+        audio = r.listen(source)
+
+    try:
+        print('Reconhecendo...')
+        query = r.recognize_google(audio, language='en-in')
+        if not 'exit' in query or 'stop' in query:
+            speak(choice(opening_text))
+        else:
+            hour = datetime.now().hour
+            if hour >= 21 and hour < 6:
+                speak("Boa noite senhor, tome cuidado!")
+            else:
+                speak('Tenha um bom dia senhor!')
+            exit()
+    except Exception:
+        speak('Desculpe, eu não consegui entender. Você poderia por favor dizer isso de novo?')
+        query = 'Nada'
+    return query
