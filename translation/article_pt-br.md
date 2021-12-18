@@ -24,7 +24,7 @@
 $ python -m venv env
 ```
 
-### The above command will create a virtual environment named `env`. Now, we need to activate the environment using the command:
+### O comando acima criará um ambiente virtual chamado `env`. Agora, precisamos ativar o ambiente usando o comando:
 
 ```shell
 $ . env/Scripts/activate
@@ -172,29 +172,29 @@ from utils import opening_text
 
 
 def take_user_input():
-    """Takes user input, recognizes it using Speech Recognition module and converts it into text"""
+    # Recebe a entrada do usuário, reconhece-a usando o módulo de reconhecimento de fala e a converte em texto:
 
     r = sr.Recognizer()
     with sr.Microphone() as source:
-        print('Listening....')
+        print('Ouvindo....')
         r.pause_threshold = 1
         audio = r.listen(source)
 
     try:
-        print('Recognizing...')
+        print('Reconhecendo...')
         query = r.recognize_google(audio, language='en-in')
         if not 'exit' in query or 'stop' in query:
             speak(choice(opening_text))
         else:
             hour = datetime.now().hour
             if 21 <= hour < 6:
-                speak("Good night sir, take care!")
+                speak("Boa Noite Senhor, tenha cuidado!")
             else:
-                speak('Have a good day sir!')
+                speak('Tenha um bom dia senhor!')
             exit()
     except Exception:
-        speak('Sorry, I could not understand. Could you please say that again?')
-        query = 'None'
+        speak('Desculpe-me, mas não consegui entender. Poderias dizer novamente?')
+        query = 'Nada'
     return query
 ```
 
@@ -212,12 +212,29 @@ def take_user_input():
 
 ```python
 opening_text = [
-    "Cool, I'm on it sir.",
-    "Okay sir, I'm working on it.",
-    "Just a second sir.",
+    "Legal, já estou tratando disso, senhor.",
+    "Ok, senhor, estou trabalhando nisso.",
+    "Só um segundo senhor.",
 ]
 ```
 
 ### Se a consulta não tiver essas duas palavras (sair ou parar), falamos algo para dizer ao usuário que as ouvimos. Para isso, usaremos o método de escolha do módulo aleatório para selecionar aleatoriamente qualquer instrução da lista `opening_text`. Depois de falar, saímos do programa.
 
 ### Durante todo o processo, se encontrarmos uma exceção, pedimos desculpas ao usuário e definimos a `querry` a como Nenhum. No final, retornamos a `querry`.
+
+## Como configurar funções offline:
+
+### Dentro da pasta de `functions`, crie um arquivo Python chamado `os_ops.py`. Neste arquivo, vamos criar várias funções para interagir com o sistema operacional.
+
+```Python
+import os
+import subprocess as sp
+
+paths = {
+    'notepad': "C:\\Program Files\\Notepad++\\notepad++.exe",
+    'Visual Studio': "C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\setup",
+    'calculator': "C:\\Windows\\System32\\calc.exe"
+}
+```
+
+### No script acima, criamos um dicionário chamado `paths` que tem o nome do software como chave e seu caminho como valor. Você pode alterar os caminhos de acordo com seu sistema e adicionar mais caminhos de software, se necessário.
