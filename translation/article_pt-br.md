@@ -315,3 +315,33 @@ from decouple import config
 ```
 
 ### Antes de começarmos a trabalhar com APIs, se você não estiver familiarizado com APIs e como interagir com elas usando Python, confira este [tutorial](https://iread.ga/posts/26/python-api-tutorial).
+
+## Como adicionar a função Find my IP Address:
+
+### [ipify](https://www.ipify.org/) fornece uma API de endereço IP público simples. Só precisamos fazer uma solicitação GET neste URL: https://api64.ipify.org/?format=json. Ele retorna dados JSON como:
+
+```json
+{
+  "ip": "117.214.111.199"
+}
+```
+
+### Podemos então simplesmente retornar o `ip` dos dados JSON. Então, vamos criar este método:
+
+```python
+def find_my_ip():
+    ip_address = requests.get('https://api64.ipify.org?format=json').json()
+    return ip_address["ip"]
+```
+
+## Como adicionar a função Pesquisar na Wikipedia:
+
+### Para pesquisar na Wikipedia, usaremos o módulo da `wikipedia` que instalamos anteriormente neste tutorial.
+
+```python
+def search_on_wikipedia(query):
+    results = wikipedia.summary(query, sentences=2)
+    return results
+```
+
+### Dentro do módulo da `wikipedia`, temos um método `summary()` que aceita uma consulta como argumento. Além disso, também podemos passar o número de frases necessárias. Então, simplesmente retornamos o resultado.
