@@ -278,3 +278,40 @@ def open_cmd ():
 def open_calculator():
     sp.Popen(paths['calculator'])
 ```
+
+## Estaremos adicionando várias funções online. Eles são:
+
+1 - Encontre meu endereço IP
+
+2 - Pesquise na Wikipedia
+
+3 - Reproduza vídeos no YouTube
+
+4 - Pesquise no Google
+
+5 - Enviar mensagem WhatsApp
+
+6 - Enviar email
+
+7 - Obtenha as últimas manchetes de notícias
+
+8 - Obtenha o boletim meteorológico
+
+9 - Obtenha filmes populares
+
+10 - Piadas aleatórias
+
+11 - Obtenha conselhos aleatórios
+
+### Vamos criar um arquivo chamado `online_ops.py` dentro do diretório de `functions` e começar a criar essas funções uma após a outra. Por enquanto, adicione o seguinte código ao arquivo:
+
+```python
+import requests
+import wikipedia
+import pywhatkit as kit
+from email.message import EmailMessage
+import smtplib
+from decouple import config
+```
+
+### Antes de começarmos a trabalhar com APIs, se você não estiver familiarizado com APIs e como interagir com elas usando Python, confira este [tutorial](https://iread.ga/posts/26/python-api-tutorial).
