@@ -61,7 +61,7 @@ def take_user_input():
             speak(choice(opening_text))
         else:
             hour = datetime.now().hour
-            if hour >= 21 and hour < 6:
+            if 21 <= hour < 6:
                 speak("Boa noite senhor, tome cuidado!")
             else:
                 speak('Tenha um bom dia senhor!')
@@ -70,3 +70,19 @@ def take_user_input():
         speak('Desculpe, eu não consegui entender. Você poderia por favor dizer isso de novo?')
         query = 'Nada'
     return query
+
+
+def open_camera():
+    sp.run('start microsoft.windows.camera:', shell=True)
+
+
+def open_notepad():
+    os.startfile(paths['notepad'])
+
+
+def open_discord():
+    os.startfile(paths['discord'])
+
+
+def open_cmd():
+    os.system('cmd inicial')

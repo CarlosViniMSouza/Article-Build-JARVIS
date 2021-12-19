@@ -238,3 +238,43 @@ paths = {
 ```
 
 ### No script acima, criamos um dicionário chamado `paths` que tem o nome do software como chave e seu caminho como valor. Você pode alterar os caminhos de acordo com seu sistema e adicionar mais caminhos de software, se necessário.
+
+## Como abrir a câmera:
+
+### Usaremos esta função para abrir a câmera em nosso sistema. Estaremos usando o módulo de `subprocess` para executar o comando.
+
+```python
+def open_camera():
+    sp.run('start microsoft.windows.camera:', shell=True)
+```
+
+## Como abrir o bloco de notas e o Discord:
+
+### Usaremos essas funções para abrir o Notepad ++ e o Discord no sistema.
+
+```python
+def open_notepad():
+    os.startfile(paths['notepad'])
+
+
+def open_discord():
+    os.startfile(paths['discord'])
+```
+
+## Como abrir o prompt de comando:
+
+### Usaremos esta função para abrir o prompt de comando em nosso sistema.
+
+```python
+def open_cmd ():
+    os.system('cmd inicial')
+```
+
+## Como abrir a calculadora:
+
+### Usaremos esta função para abrir a calculadora em nosso sistema.
+
+```python
+def open_calculator():
+    sp.Popen(paths['calculator'])
+```
