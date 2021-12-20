@@ -409,3 +409,29 @@ def send_email(receiver_address, subject, message):
 ### O método aceita `receiver_address`, `subject` e `message` como argumentos. Criamos um objeto da classe _SMTP_ a partir do módulo `smtplib`. Leva o *host* e o *número da porta(port number)* como parâmetros.
 
 ### Em seguida, iniciamos uma sessão e logamos com o endereço de e-mail e senha e enviamos o e-mail. Certifique-se de adicionar *EMAIL* e *PASSWORD* no arquivo `.env`.
+
+## Como adicionar a função Obter manchetes de notícias mais recentes:
+
+### Para obter as manchetes de notícias mais recentes, usaremos [NewsAPI](https://newsapi.org/). Inscreva-se para uma conta gratuita no NewsAPI e obtenha a chave API. Adicione *NEWS_API_KEY* no arquivo `.env`.
+
+```python
+NEWS_API_KEY = config("NEWS_API_KEY")
+
+
+def get_latest_news():
+    news_headlines = []
+    res = requests.get(
+        f"https://newsapi.org/v2/top-headlines?country=in&apiKey={NEWS_API_KEY}&category=general").json()
+    articles = res["articles"]
+    for article in articles:
+        news_headlines.append(article["title"])
+    return news_headlines[:5]
+```
+
+### No método acima, estamos criando primeiro uma lista vazia chamada `news_headlines`. Em seguida, estamos fazendo uma solicitação GET na URL da API especificada na [Documentação NewsAPI](https://newsapi.org/docs). Um exemplo de resposta JSON da solicitação tem a seguinte aparência:
+
+```
+See the file in: json/request.json
+```
+
+### Como a notícia está contida em uma lista chamada `articles`, estamos criando uma variável `articles` com o valor `res['artigos']`. Agora estamos iterando esta lista de `articles` e acrescentando o `articles["title"]` à lista `news_headlines`. Estamos, então, retornando as cinco primeiras manchetes desta lista.
