@@ -14,3 +14,7 @@ def find_my_ip():
 def search_on_wikipedia(query):
     results = wikipedia.summary(query, sentences=2)
     return results
+
+
+def play_on_youtube(video):
+    kit.playonyt(video)

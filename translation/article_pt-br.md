@@ -345,3 +345,14 @@ def search_on_wikipedia(query):
 ```
 
 ### Dentro do módulo da `wikipedia`, temos um método `summary()` que aceita uma consulta como argumento. Além disso, também podemos passar o número de frases necessárias. Então, simplesmente retornamos o resultado.
+
+## Como adicionar a função de reproduzir vídeos no YouTube:
+
+### Para reproduzir vídeos no YouTube, estamos usando o _PyWhatKit_. Já importamos como `kit`.
+
+```python
+def play_on_youtube(video):
+    kit.playonyt(video)
+```
+
+### _PyWhatKit_ tem um método `playonyt()` que aceita um tópico como argumento. Em seguida, ele pesquisa o tópico no YouTube e reproduz o vídeo mais adequado. Ele usa [PyAutoGUI](https://pyautogui.readthedocs.io/en/latest/) sob o capô.
