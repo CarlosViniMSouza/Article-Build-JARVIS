@@ -435,3 +435,28 @@ See the file in: json/request.json
 ```
 
 ### Como a notícia está contida em uma lista chamada `articles`, estamos criando uma variável `articles` com o valor `res['artigos']`. Agora estamos iterando esta lista de `articles` e acrescentando o `articles["title"]` à lista `news_headlines`. Estamos, então, retornando as cinco primeiras manchetes desta lista.
+
+## Como adicionar a função Obter Boletim Meteorológico:
+
+### Para obter o relatório do tempo, estamos usando a [API OpenWeatherMap](https://openweathermap.org/). Cadastre-se para uma conta gratuita e obtenha o ID do APP. Certifique-se de adicionar *OPENWEATHER_APP_ID* no arquivo `.env`.
+
+```python
+OPENWEATHER_APP_ID = config("OPENWEATHER_APP_ID")
+
+
+def get_weather_report(city):
+    res = requests.get(
+        f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={OPENWEATHER_APP_ID}&units=metric").json()
+    weather = res["weather"][0]["main"]
+    temperature = res["main"]["temp"]
+    feels_like = res["main"]["feels_like"]
+    return weather, f"{temperature}℃", f"{feels_like}℃"
+```
+
+### De acordo com a [API OpenWeatherMap](https://openweathermap.org/current), precisamos fazer uma solicitação GET no URL mencionado acima com o nome da cidade. Obteremos uma resposta JSON como:
+
+```
+See the file in: json/request_weather.json
+```
+
+### Precisamos apenas do `weather`, `temperature`, e `feels_like` da resposta acima.
