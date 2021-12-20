@@ -378,3 +378,34 @@ def send_whatsapp_message(number, message):
 ```
 
 ### Nosso método aceita dois argumentos - o `number` do telefone e a `message`. Em seguida, ele chama o método `sendwhatmsg_instantly()` para enviar uma mensagem do WhatsApp. Verifique se você já está conectado à sua conta do WhatsApp no ​​WhatsApp para Web.
+
+## Como adicionar a função de enviar e-mail:
+
+### Para enviar e-mails, usaremos o módulo `smtplib` embutido do Python.
+
+```python
+EMAIL = config("EMAIL")
+PASSWORD = config("PASSWORD")
+
+
+def send_email(receiver_address, subject, message):
+    try:
+        email = EmailMessage()
+        email['To'] = receiver_address
+        email["Subject"] = subject
+        email['From'] = EMAIL
+        email.set_content(message)
+        s = smtplib.SMTP("smtp.gmail.com", 587)
+        s.starttls()
+        s.login(EMAIL, PASSWORD)
+        s.send_message(email)
+        s.close()
+        return True
+    except Exception as e:
+        print(e)
+        return False
+```
+
+### O método aceita `receiver_address`, `subject` e `message` como argumentos. Criamos um objeto da classe _SMTP_ a partir do módulo `smtplib`. Leva o *host* e o *número da porta(port number)* como parâmetros.
+
+### Em seguida, iniciamos uma sessão e logamos com o endereço de e-mail e senha e enviamos o e-mail. Certifique-se de adicionar *EMAIL* e *PASSWORD* no arquivo `.env`.

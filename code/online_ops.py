@@ -28,3 +28,24 @@ def send_whatsapp_message(number, message):
     kit.sendwhatmsg_instantly(f"+91{number}", message)
 
 
+EMAIL = config("EMAIL")
+PASSWORD = config("PASSWORD")
+
+
+def send_email(receiver_address, subject, message):
+    try:
+        email = EmailMessage()
+        email['To'] = receiver_address
+        email["Subject"] = subject
+        email['From'] = EMAIL
+        email.set_content(message)
+        s = smtplib.SMTP("smtp.gmail.com", 587)
+        s.starttls()
+        s.login(EMAIL, PASSWORD)
+        s.send_message(email)
+        s.close()
+        return True
+    except Exception as e:
+        print(e)
+        return False
+
