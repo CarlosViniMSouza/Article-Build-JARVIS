@@ -356,3 +356,25 @@ def play_on_youtube(video):
 ```
 
 ### _PyWhatKit_ tem um método `playonyt()` que aceita um tópico como argumento. Em seguida, ele pesquisa o tópico no YouTube e reproduz o vídeo mais adequado. Ele usa [PyAutoGUI](https://pyautogui.readthedocs.io/en/latest/) sob o capô.
+
+## Como adicionar a função Pesquisar no Google:
+
+### Mais uma vez, usaremos o PyWhatKit para pesquisar no Google.
+
+```python
+def search_on_google(query):
+    kit.search(query)
+```
+
+### Possui um método `search()` que nos ajuda a pesquisar no Google instantaneamente.
+
+## Como adicionar a função Enviar mensagem do WhatsApp:
+
+### Estaremos usando o PyWhatKit mais uma vez para enviar mensagens do WhatsApp.
+
+```python
+def send_whatsapp_message(number, message):
+    kit.sendwhatmsg_instantly(f"+91{number}", message)
+```
+
+### Nosso método aceita dois argumentos - o `number` do telefone e a `message`. Em seguida, ele chama o método `sendwhatmsg_instantly()` para enviar uma mensagem do WhatsApp. Verifique se você já está conectado à sua conta do WhatsApp no ​​WhatsApp para Web.
