@@ -510,6 +510,16 @@ See the file in: code/main_method_fragmented.py
 
 ### Em seguida, executamos um loop while para receber continuamente a entrada do usuário usando a função `take_user_input()`. Como temos nossa string de consulta aqui, podemos adicionar a escada if-else para verificar as diferentes condições na `query` de consulta.
 
-NOTE: For [Python 3.10](https://www.python.org/dev/peps/pep-0636/), you can use Python Match Case instead of if-else ladder.
+```
+NOTE: Para Python 3.10, você pode usar Python Match Case em vez de if-else ladder.
+```
 
-### To run the program, you can use the following command: `$ python main.py`
+### Para executar o programa, você pode usar o seguinte comando: `$ python main.py`
+
+## Conclusão:
+
+### Acabamos de criar nosso próprio assistente pessoal virtual com a ajuda de Python. Você pode adicionar mais recursos ao aplicativo, se desejar. Você pode adicionar este projeto ao seu currículo ou apenas por diversão!
+
+### Assista ao [vídeo de demonstração](https://vimeo.com/650156113?embedded=true&source=vimeo_logo&owner=128894426) para vê-lo em ação:
+
+### Para o código completo, verifique este [repositório no GitHub](https://github.com/ashutoshkrris/Virtual-Personal-Assistant-using-Python)
