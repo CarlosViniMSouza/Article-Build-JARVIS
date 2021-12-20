@@ -495,3 +495,21 @@ def get_random_advice():
     res = requests.get("https://api.adviceslip.com/advice").json()
     return res['slip']['advice']
 ```
+
+## Como criar o método principal:
+
+### Para executar o projeto, precisaremos criar um método principal. Crie um arquivo main.py e adicione o seguinte código:
+
+```
+See the file in: code/main_method_fragmented.py
+```
+
+### Embora o script acima pareça bastante extenso, é muito simples e fácil de entender.
+
+### Se você olhar com atenção, tudo o que fizemos foi importar os módulos necessários e as funções online e offline. Então, dentro do método principal, a primeira coisa que fazemos é cumprimentar o usuário usando a função `greet_user()`.
+
+### Em seguida, executamos um loop while para receber continuamente a entrada do usuário usando a função `take_user_input()`. Como temos nossa string de consulta aqui, podemos adicionar a escada if-else para verificar as diferentes condições na `query` de consulta.
+
+NOTE: For [Python 3.10](https://www.python.org/dev/peps/pep-0636/), you can use Python Match Case instead of if-else ladder.
+
+### To run the program, you can use the following command: `$ python main.py`
