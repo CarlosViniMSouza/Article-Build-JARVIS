@@ -472,3 +472,26 @@ See the file in: json/request_movies.json
 ```
 
 ### Pela resposta acima, precisamos apenas do título do filme. Obtemos os `results` que são uma lista e, em seguida, iteramos sobre ela para obter o título do filme e anexá-lo à lista `trending_movies`. No final, retornamos os primeiros cinco elementos da lista.
+
+## Como adicionar a função Get Random Jokes:
+
+### Para obter uma piada aleatória, só precisamos fazer uma solicitação GET neste URL: https://icanhazdadjoke.com/.
+
+```python
+def get_random_joke():
+    headers = {
+        'Accept': 'application/json'
+    }
+    res = requests.get("https://icanhazdadjoke.com/", headers=headers).json()
+    return res["joke"]
+```
+
+## Como adicionar a função Get Random Advice:
+
+### Para obter um conselho aleatório, estamos usando a [API Advice Slip](https://api.adviceslip.com/).
+
+```python
+def get_random_advice():
+    res = requests.get("https://api.adviceslip.com/advice").json()
+    return res['slip']['advice']
+```
