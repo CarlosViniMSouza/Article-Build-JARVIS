@@ -460,3 +460,15 @@ See the file in: json/request_weather.json
 ```
 
 ### Precisamos apenas do `weather`, `temperature`, e `feels_like` da resposta acima.
+
+## Como adicionar a função Get Trending Movies:
+
+### Para obter os filmes de tendência, usaremos a API [The Movie Database (TMDB)](https://www.themoviedb.org/). Inscreva-se para uma conta gratuita e obtenha a chave API. Adicione o *TMDB_API_KEY* no arquivo `.env`.
+
+### Assim como fizemos com as últimas notícias, estamos criando uma lista de `trending_movies`. Então, de acordo com a API TMDB, estamos fazendo uma solicitação GET. Um exemplo de resposta JSON se parece com isto:
+
+```
+See the file in: json/request_movies.json
+```
+
+### Pela resposta acima, precisamos apenas do título do filme. Obtemos os `results` que são uma lista e, em seguida, iteramos sobre ela para obter o título do filme e anexá-lo à lista `trending_movies`. No final, retornamos os primeiros cinco elementos da lista.
